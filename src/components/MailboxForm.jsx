@@ -13,8 +13,6 @@ const MailboxForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    // TODO: let's debug this to see if we are doing what we think
-    // TODO: need to set the id (something along the lines of mailboxes.length + 1)
     props.addMailbox(formData)
     setFormData(initialState)
     navigate("/mailboxes")
@@ -23,7 +21,6 @@ const MailboxForm = (props) => {
   const handleChange = ({ target }) => {
     setFormData({ ...formData, [target.name]: target.value })
   }
-  console.log(formData)
 
   return (
     <main>

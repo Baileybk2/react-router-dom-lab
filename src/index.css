@@ -113,3 +113,8 @@ textarea {
 button {
   background-color: #535bf2;
 }
+
+#boxSize {
+  width: 100%;
+  margin-top: 16px;
+}
