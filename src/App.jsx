@@ -7,32 +7,30 @@ import MailboxForm from "./components/MailboxForm"
 
 const App = () => {
   const [mailboxes, setMailboxes] = useState([])
+
+  const addMailbox = (newMailboxData) => {
+    newMailboxData._id = mailboxes.length + 1
+    setMailboxes([...mailboxes, newMailboxData])
+  }
+
   return (
     <>
-      <h1>Post Office</h1>
       <NavBar />
+      <h1>Post Office</h1>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <main>
-              <h1>Mailbox List</h1>
-            </main>
-          }
-        />
+        <Route path="/" element={<h2>Home Page</h2>} />
         <Route
           path="/mailboxes"
           element={<MailboxList mailboxes={mailboxes} />}
         />
-        {/* <Route
-          path="/mailboxes/new"
-          element={<MailboxForm addMailbox={addMailbox} />}
-        /> */}
         <Route
           path="/mailboxes/:mailboxId"
           element={<MailboxDetails mailboxes={mailboxes} />}
         />
-        <Route path="*" element={<h2>Oops, page not found.</h2>} />
+        <Route
+          path="/mailboxes/new"
+          element={<MailboxForm addMailbox={addMailbox} />}
+        />
       </Routes>
     </>
   )
